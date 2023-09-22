@@ -1,8 +1,7 @@
 const { getWeather } = require('./getData.js');
 const http = require('http');
 const server = http.createServer().listen(3000);
-const format = require('date-fns/format');
-
+const format = require('date-fns/format')
 
 server.on('request', async (req, res) => { // подписка на входящий запрос 
 	const HOST = 'http://localhost';
@@ -14,11 +13,12 @@ server.on('request', async (req, res) => { // подписка на входящ
 			break;
 		default:
 			const cityName = urlParams.searchParams.get('city');
-			console.log(cityName);
-			let { name, weather, main, sys } = await getWeather(cityName);
-			console.log(main);
+			const { name, weather, main, sys } = await getWeather(cityName);
+			console.log(sys)
+			/* const timeZone = sys.country;
+			const zonedDate = utcToZonedTime(sys.sunrise, timeZone); */
 			if (name) {
-				result = `conditions for ${name} is ${weather[0].main}. Sunset: ${format(sys.sunrise, 'H:m')}`;
+				result = `Conditions for ${name} is ${weather[0].main}. Sunset: ${format(sys.sunset, 'H:m')}`;
 			} else result = 'The city is not found, try another one';
 			break;
 	}

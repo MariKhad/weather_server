@@ -11,6 +11,7 @@ module.exports.getWeather = function (cityName) {
 			}
 			return response.json();
 		}).then(data => {
+			console.log(data);
 			return data;
 		}).catch((error) => {
 			return error.message;
