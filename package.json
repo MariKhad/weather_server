@@ -1,0 +1,19 @@
+{
+	"name": "weather_server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"engines": {
+		"node": "16.x"
+	},
+	"dependencies": {
+		"date-fns": "^2.30.0",
+		"install": "^0.13.0",
+		"node-fetch": "^2.7.0"
+	}
+}
