@@ -18,7 +18,7 @@ server.on('request', async (req, res) => { // подписка на входящ
 			/* const timeZone = sys.country;
 			const zonedDate = utcToZonedTime(sys.sunrise, timeZone); */
 			if (name) {
-				result = `Conditions for ${name} is ${weather[0].main}. Sunset: ${format(sys.sunset, 'H:m')}`;
+				result = `Conditions for ${name} is ${weather[0].main}. Sunset: ${format(sys.sunset * 100, 'H:m')}`;
 			} else result = 'The city is not found, try another one';
 			break;
 	}
