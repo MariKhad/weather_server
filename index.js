@@ -14,11 +14,10 @@ server.on('request', async (req, res) => { // подписка на входящ
 		default:
 			const cityName = urlParams.searchParams.get('city');
 			const { name, weather, main, sys } = await getWeather(cityName);
-			console.log(sys)
 			/* const timeZone = sys.country;
 			const zonedDate = utcToZonedTime(sys.sunrise, timeZone); */
 			if (name) {
-				result = `Conditions for ${name} is ${weather[0].main}. Sunset: ${format(sys.sunset * 100, 'H:m')}`;
+				result = `Conditions for ${name} is ${weather[0].main}. \nSunrise: ${format(sys.sunrise * 1000, 'hh:mm')} \nSunset: ${format(sys.sunset * 1000, 'hh:mm')}`;
 			} else result = 'The city is not found, try another one';
 			break;
 	}
